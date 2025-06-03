@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Call HP Support - HP Printer Setup</title>
-<link rel="icon" type="image/png" sizes="32x32" href="/images/group1.png">
+  <title>HP Printer Support - Immediate Assistance</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/group1.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #fff;
+      font-family: 'Inter', sans-serif;
+      background-color: #f9f9f9;
       margin: 0;
       padding: 40px 20px;
+      color: #222;
     }
     .container {
       max-width: 1000px;
@@ -18,19 +20,22 @@
     }
     .logo {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
+      align-items: center;
       padding-bottom: 30px;
     }
     .logo img {
       height: 60px;
     }
     .error-box {
-      border: 1px solid #ccc;
-      border-radius: 10px;
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
       padding: 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       gap: 40px;
       flex-wrap: wrap;
     }
@@ -38,40 +43,59 @@
       flex: 1 1 500px;
     }
     .error-text h2 {
-      font-size: 24px;
-      color: #333;
+      font-size: 26px;
+      color: #c0392b;
       margin-bottom: 20px;
+      font-weight: 700;
     }
     .error-text ul {
       font-size: 16px;
       line-height: 1.6;
-      color: #333;
+      padding-left: 20px;
     }
     .error-text strong {
-      font-weight: bold;
+      font-weight: 600;
+      color: #2c3e50;
     }
     .buttons {
-      margin: 20px 0;
+      margin: 30px 0;
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
     }
     .button {
-      background-color: #0F5D99;
+      background-color: #007BFF;
       color: white;
-      padding: 10px 20px;
+      padding: 12px 24px;
       font-size: 16px;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: #0056b3;
     }
     .warning {
-      color: red;
       font-size: 16px;
-      margin-top: 15px;
+      margin-top: 10px;
+    }
+    .highlight {
+      color: #007BFF;
+      font-weight: 700;
+    }
+    .notice {
+      color: #e67e22;
+      font-weight: 600;
+      margin-top: 10px;
     }
     .error-image {
       flex: 1 1 300px;
-      text-align: center;
+      text-align: right;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 60px;
     }
     .error-image img {
       max-width: 100%;
@@ -87,19 +111,18 @@
 
     <div class="error-box">
       <div class="error-text">
-        <h2>Fatal error occurred during the printer installation..</h2>
+        <h2>Printer Setup Failed - Immediate Attention Required</h2>
         <ul>
-          <li>Operation could not be completed. (Error 0X000290)</li>
-          <li>System can’t locate a suitable printer driver.</li>
-          <li><strong>For instant printer setup, please call our Toll-Free Number now</strong></li>
+          <li>Fatal error: Operation could not be completed. (Error 0X000290)</li>
+          <li>System could not locate a suitable printer driver.</li>
+          <li><strong>Call our certified technicians for instant printer setup assistance.</strong></li>
         </ul>
         <div class="buttons">
-          <a href="javascript:void(0);" onclick="openJivoChat();" style="padding: 10px 20px; background-color: #0F5D99; color: white; font-size:16px; text-decoration: none; border-radius: 5px;">START LIVE CHAT</a>
-          <a href="tel:+1 8662683577" class="button">CALL US +1 866-268-3577</a>
+          <a href="javascript:void(0);" onclick="openJivoChat();" class="button">Start Live Chat</a>
+          <a href="tel:+18662683577" class="button">Call Toll-Free: +1 866-268-3577</a>
         </div>
-        <p class="warning" style="color: #0F5D99; font-weight: bold;">Certified experts guide you to fix your printer issues in just minutes!</p>
-
-        <p class="warning">Note: Do not attempt to retry the installation as it can void the product warranty.</p>
+        <p class="warning highlight">Certified experts fix your printer issues in just minutes – Call now!</p>
+        <p class="notice">Note: Retrying installation may void your warranty. Contact our support first.</p>
       </div>
       <div class="error-image">
         <img src="images/updates-section.png" alt="Printer Error">
@@ -109,11 +132,11 @@
 
   <script>
     function openJivoChat() {
-        if (window.jivo_api) {
-            jivo_api.open();
-        }
+      if (window.jivo_api) {
+        jivo_api.open();
+      }
     }
   </script>
-<script src="//code.jivosite.com/widget/PwIvpjoKWf" async></script>
+  <script src="//code.jivosite.com/widget/PwIvpjoKWf" async></script>
 </body>
 </html>
