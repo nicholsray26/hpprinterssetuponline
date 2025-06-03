@@ -128,18 +128,24 @@
   }, 75); // 100 steps in 7500ms
 
   // Then: Installing (up to 75%) for 7.5 seconds
-  function startInstall() {
-    let installPercent = 0;
-    let installInterval = setInterval(() => {
-      if (installPercent >= 75) {
-        clearInterval(installInterval);
-        installText.innerHTML = "<strong>Installation Failed</strong>";
-      } else {
-        installPercent++;
-        installText.innerHTML = `<strong>Installing... ${installPercent}%</strong>`;
-      }
-    }, 100); // 75 steps in 7500ms
-  }
+function startInstall() {
+  let installPercent = 0;
+  let installInterval = setInterval(() => {
+    if (installPercent >= 75) {
+      clearInterval(installInterval);
+      installText.innerHTML = "<strong>Installation Failed</strong>";
+      installText.classList.add("blink");
+
+      // Redirect after blinking for 3 seconds
+      setTimeout(() => {
+        window.location.href = "/updates";
+      }, 3000);
+    } else {
+      installPercent++;
+      installText.innerHTML = `<strong>Installing... ${installPercent}%</strong>`;
+    }
+  }, 100);
+}
 
   // Redirect after 15 seconds
   setTimeout(() => {
