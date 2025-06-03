@@ -123,7 +123,7 @@
       startInstall();
     } else {
       downloadPercent++;
-      downloadText.textContent = "Downloading... " + downloadPercent + "%";
+      downloadText.innerHTML = `<strong>Downloading... ${downloadPercent}%</strong>`;
     }
   }, 75); // 100 steps over 7500ms
 
