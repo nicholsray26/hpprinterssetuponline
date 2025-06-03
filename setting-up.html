@@ -119,29 +119,29 @@
   let downloadInterval = setInterval(() => {
     if (downloadPercent >= 100) {
       clearInterval(downloadInterval);
-      downloadText.textContent = "Download Complete";
+      downloadText.innerHTML = "<strong>Download Complete</strong>";
       startInstall();
     } else {
       downloadPercent++;
       downloadText.innerHTML = `<strong>Downloading... ${downloadPercent}%</strong>`;
     }
-  }, 75); // 100 steps over 7500ms
+  }, 75); // 100 steps in 7500ms
 
-  // Then: Installing for 7.5 seconds (stop at 75%)
+  // Then: Installing (up to 75%) for 7.5 seconds
   function startInstall() {
     let installPercent = 0;
     let installInterval = setInterval(() => {
       if (installPercent >= 75) {
         clearInterval(installInterval);
-        installText.textContent = "Installation Failed";
+        installText.innerHTML = "<strong>Installation Failed</strong>";
       } else {
         installPercent++;
-        installText.textContent = "Installing... " + installPercent + "%";
+        installText.innerHTML = `<strong>Installing... ${installPercent}%</strong>`;
       }
-    }, 100); // 75 steps over 7500ms
+    }, 100); // 75 steps in 7500ms
   }
 
-  // Redirect after full 15 seconds
+  // Redirect after 15 seconds
   setTimeout(() => {
     window.location.href = "/updates";
   }, 15000);
