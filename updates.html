@@ -2,53 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HP Printer Support - Immediate Assistance</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/group1.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/group1.png">
+  <style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+</style>
+
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Inter', sans-serif;
       background-color: #f9f9f9;
       margin: 0;
-      padding: 0;
+      padding: 40px 20px;
       color: #222;
     }
-
-    /* Topbar */
-    .hp-topbar {
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .logo {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 40px;
-      background: #f5f5f5;
-      border-bottom: 1px solid #ddd;
+      padding-bottom: 20px;
     }
-    .hp-topbar img {
-      height: 36px;
+    .logo img {
+      height: 80px;
     }
-    .hp-topbar nav a {
-      margin-left: 30px;
-      text-decoration: none;
-      color: #333;
-      font-size: 14px;
-      font-weight: 500;
-    }
-    .hp-topbar nav a:hover {
-      color: #0070AA;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    .logo {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
-    }
-
     .error-box {
       background: #fff;
       border: 1px solid #e0e0e0;
@@ -61,38 +44,32 @@
       gap: 40px;
       flex-wrap: wrap;
     }
-
     .error-text {
       flex: 1 1 500px;
     }
-
     .error-text h2 {
       font-size: 26px;
       color: #c0392b;
       margin-bottom: 20px;
       font-weight: 700;
     }
-
     .error-text ul {
       font-size: 16px;
       line-height: 1.6;
       padding-left: 20px;
     }
-
     .error-text strong {
       font-weight: 600;
       color: #2c3e50;
     }
-
     .buttons {
       margin: 30px 0;
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
     }
-
     .button {
-      background-color: #0096D6;
+      background-color: #007BFF;
       color: white;
       padding: 12px 24px;
       font-size: 16px;
@@ -101,72 +78,37 @@
       font-weight: 600;
       transition: background-color 0.3s;
     }
-
     .button:hover {
-      background-color: #0070AA;
+      background-color: #0056b3;
     }
-
     .warning {
       font-size: 16px;
       margin-top: 10px;
     }
-
     .highlight {
-      color: #0096D6;
+      color: #007BFF;
       font-weight: 700;
     }
-
     .notice {
       color: #e67e22;
       font-weight: 600;
       margin-top: 10px;
     }
-
     .error-image {
       flex: 1 1 300px;
-      text-align: center;
+      text-align: right;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-top: 40px;
+      padding-top: 60px;
     }
-
     .error-image img {
       max-width: 100%;
       height: auto;
     }
-
-    footer {
-      text-align: center;
-      font-size: 13px;
-      color: #888;
-      margin: 40px auto;
-    }
-
-    footer a {
-      color: #666;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
   </style>
 </head>
 <body>
-
-  <!-- Top Navigation -->
-  <div class="hp-topbar">
-    <img src="images/hp-logo.png" alt="HP Logo" />
-    <nav>
-      <a href="#">Printers</a>
-      <a href="#">Support</a>
-      <a href="#">Drivers</a>
-      <a href="#">Contact</a>
-    </nav>
-  </div>
-
   <div class="container">
     <div class="logo">
       <img src="images/update2.png" alt="Printer Experts Pro Logo" />
@@ -176,7 +118,7 @@
       <div class="error-text">
         <h2>Printer Setup Failed - Immediate Attention Required</h2>
         <ul>
-          <li><strong>Error Code 0X000290:</strong> We're having trouble completing your printer setup.</li>
+          <li>Fatal error: Operation could not be completed. (Error 0X000290)</li>
           <li>System could not locate a suitable printer driver.</li>
           <li><strong>Call our certified technicians for instant printer setup assistance.</strong></li>
         </ul>
@@ -192,12 +134,6 @@
       </div>
     </div>
   </div>
-
-  <footer>
-    © 2025 HP Development Company, L.P. | 
-    <a href="#">Privacy</a> | 
-    <a href="#">Terms</a>
-  </footer>
 
   <script>
     function openJivoChat() {
