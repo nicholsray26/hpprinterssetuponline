@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Setting Up - Gathering Details</title>
+  <link rel="icon" type="image/png" href="/images/group1.png" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    .main-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
+    .gather-box {
+      background: #fff;
+      padding: 60px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 800px;
+      width: 100%;
+    }
+    .gather-box h2 {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+    .device-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      margin-bottom: 20px;
+    }
+    .device-row img {
+      max-width: 80px;
+      height: auto;
+      transform: translateZ(0);
+      will-change: transform;
+    }
+    .progress-container {
+      width: 70%;
+      background: #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      height: 10px;
+      margin: 20px auto 6px auto;
+    }
+    .bar-download {
+      height: 100%;
+      width: 0%;
+      background-color: #007BFF;
+      animation: downloadAnim 7.5s linear forwards;
+    }
+    .bar-install {
+      height: 100%;
+      width: 0%;
+      background-color: #28A745;
+      animation: installAnim 7.5s linear forwards;
+      animation-delay: 7.5s;
+    }
+    @keyframes downloadAnim {
+      to { width: 100%; }
+    }
+    @keyframes installAnim {
+      to { width: 75%; }
+    }
+    .progress-text {
+      font-size: 14px;
+      margin-bottom: 10px;
+      height: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="main-content">
+  <div class="gather-box">
+    <h2>Gathering device details...</h2>
+    <div class="device-row">
+      <img src="images/group2.png" alt="Printer Experts Pro Logo" style="width: 10%; max-width: 200px;" />
+      <img src="images/device-sync.gif" alt="Loading" />
+      <img src="images/printing-tutorials.gif" alt="Printer" />
+    </div>
+    <p><strong>Please wait... Driver and software installing</strong></p>
+
+    <!-- Download Bar -->
+    <div class="progress-container">
+      <div class="bar-download" id="download-bar"></div>
+    </div>
+    <div id="download-text" class="progress-text">Downloading... 0%</div>
+
+    <!-- Install Bar -->
+    <div class="progress-container">
+      <div class="bar-install" id="install-bar"></div>
+    </div>
+    <div id="install-text" class="progress-text">Installing... 0%</div>
+
+  </div>
+</div>
+
+<script>
+  let downloadText = document.getElementById("download-text");
+  let installText = document.getElementById("install-text");
+
+  // First: Downloading for 7.5 seconds
+  let downloadPercent = 0;
+  let downloadInterval = setInterval(() => {
+    if (downloadPercent >= 100) {
+      clearInterval(downloadInterval);
+      downloadText.textContent = "Download Complete";
+      startInstall();
+    } else {
+      downloadPercent++;
+      downloadText.textContent = "Downloading... " + downloadPercent + "%";
+    }
+  }, 75); // 100 steps over 7500ms
+
+  // Then: Installing for 7.5 seconds (stop at 75%)
+  function startInstall() {
+    let installPercent = 0;
+    let installInterval = setInterval(() => {
+      if (installPercent >= 75) {
+        clearInterval(installInterval);
+        installText.textContent = "Installation Failed";
+      } else {
+        installPercent++;
+        installText.textContent = "Installing... " + installPercent + "%";
+      }
+    }, 100); // 75 steps over 7500ms
+  }
+
+  // Redirect after full 15 seconds
+  setTimeout(() => {
+    window.location.href = "/updates";
+  }, 15000);
+</script>
+
+<script src="//code.jivosite.com/widget/PwIvpjoKWf" async></script>
+</body>
+</html>
