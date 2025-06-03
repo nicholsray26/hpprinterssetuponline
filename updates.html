@@ -135,11 +135,13 @@
     </div>
   </div>
 
-<script>
-  window.jivo_onLoadCallback = function () {
-    jivo_api.setWidgetState('hidden'); // Force closed on load
-  };
-</script>
+  <script>
+    function openJivoChat() {
+      if (window.jivo_api) {
+        jivo_api.open();
+      }
+    }
+  </script>
   <script src="//code.jivosite.com/widget/PwIvpjoKWf" async></script>
 </body>
 </html>
