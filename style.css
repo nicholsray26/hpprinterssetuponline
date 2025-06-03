@@ -460,11 +460,3 @@ footer {
 .animate-icon {
   animation: pulse 1.4s infinite ease-in-out;
 }
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-.blink {
-  animation: blink 0.5s step-start 6; /* 6 x 0.5s = 3 seconds */
-}
