@@ -122,13 +122,38 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
 <!-- Your updated search wrapper -->
-<div class="search-input-wrapper" style="display: flex; align-items: center; gap: 10px;">
-  <i class="fas fa-hand-point-right animate-icon"></i>
-  <input type="text" id="printerSearchBox" class="search-box" placeholder="Please Search Your Printer" />
+<!-- Load Font Awesome (already loaded in head) -->
+
+<!-- Updated Printer Search Wrapper with Dropdown -->
+<div style="display: flex; flex-direction: column; align-items: flex-start; position: relative; max-width: 350px;">
+  <div class="search-input-wrapper" style="display: flex; align-items: center; gap: 10px; width: 100%;">
+    <i class="fas fa-hand-point-right animate-icon"></i>
+    <input type="text" id="printerSearchBox" class="search-box" placeholder="Please Search Your Printer" autocomplete="off" />
+  </div>
+  <ul id="searchResults" style="
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    display: none;
+    max-height: 200px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    position: absolute;
+    top: 50px;
+    left: 35px;
+    right: 0;
+    background: white;
+    z-index: 1000;
+    width: calc(100% - 35px);
+    border-radius: 0 0 6px 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  "></ul>
+
+  <!-- Search Button -->
+  <button class="search-btn" style="margin-top: 10px; margin-left: 25px;" onclick="window.location.href='/connect-printer';">SEARCH</button>
 </div>
 
-<button class="search-btn" style="margin-top: 10px; margin-left: 25px;" onclick="window.location.href='/connect-printer';">SEARCH</button>
-</div>
 
     <p style="margin-top: 10px; font-size: 16px; color: #444;">
       Ensure your printer is powered on and properly connected.
@@ -258,5 +283,62 @@
   </div>
 </footer>
 <script src="//code.jivosite.com/widget/PwIvpjoKWf" async></script>
+<script>
+  const printerModels = [
+    "HP Color LaserJet Pro MFP M478-M479 series",
+    "HP ENVY Inspire 7900 series",
+    "HP ENVY Inspire 7900e series",
+    "HP Envy Photo 7900 All-in-One Printer series",
+    "HP Smart Tank 790 series",
+    "HP Color Laser MFP 179fnw",
+    "HP Color Laser MFP 179fwg",
+    "HP Color LaserJet Enterprise MFP X57945 Printer",
+    "HP Color LaserJet Pro MFP M479dw",
+    "HP Color LaserJet Pro MFP M479fcdn"
+  ];
+
+  const searchBox = document.getElementById('printerSearchBox');
+  const searchResults = document.getElementById('searchResults');
+
+  searchBox.addEventListener('input', function () {
+    const input = this.value.toLowerCase();
+    searchResults.innerHTML = '';
+    if (!input) {
+      searchResults.style.display = 'none';
+      return;
+    }
+
+    const filtered = printerModels.filter(model => model.toLowerCase().includes(input));
+    if (filtered.length === 0) {
+      searchResults.style.display = 'none';
+      return;
+    }
+
+    filtered.forEach(model => {
+      const li = document.createElement('li');
+      li.textContent = model;
+      li.style.padding = '10px 15px';
+      li.style.cursor = 'pointer';
+      li.style.borderBottom = '1px solid #eee';
+      li.addEventListener('mouseover', () => li.style.background = '#f9f9f9');
+      li.addEventListener('mouseout', () => li.style.background = '#fff');
+      li.addEventListener('click', () => {
+        searchBox.value = model;
+        searchResults.style.display = 'none';
+      });
+      searchResults.appendChild(li);
+    });
+
+    searchResults.style.display = 'block';
+  });
+
+  // Hide dropdown when clicking outside
+  document.addEventListener('click', function (e) {
+    if (!document.querySelector('.search-input-wrapper').contains(e.target)) {
+      searchResults.style.display = 'none';
+    }
+  });
+</script>
+
 </body>
 </html>
