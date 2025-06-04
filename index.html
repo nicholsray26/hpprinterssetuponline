@@ -124,7 +124,15 @@
 <!-- Your updated search wrapper -->
 <div class="search-input-wrapper" style="display: flex; align-items: center; gap: 10px;">
   <i class="fas fa-hand-point-right animate-icon"></i>
-  <input type="text" id="printerSearchBox" class="search-box" placeholder="Please Search Your Printer" />
+  <input type="text" id="printerSearchBox" class="search-box" list="hp-models" placeholder="Search your HP printer model" />
+  <datalist id="hp-models">
+    <option value="HP DeskJet 2755e">
+    <option value="HP ENVY Inspire 7955e">
+    <option value="HP LaserJet Pro M404dn">
+    <option value="HP OfficeJet Pro 9015e">
+    <option value="HP Smart Tank 7301">
+    <!-- Add more models as needed -->
+  </datalist>
 </div>
 
 <button class="search-btn" style="margin-top: 10px; margin-left: 25px;" onclick="window.location.href='/connect-printer';">SEARCH</button>
