@@ -121,19 +121,13 @@
 <!-- Load Font Awesome (place in <head> once) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
-<!-- Search Wrapper -->
-<div style="display: flex; flex-direction: column; align-items: flex-start;">
-  <!-- Icon + Input -->
-  <div class="search-input-wrapper" style="display: flex; align-items: center; gap: 10px;">
-    <i class="fas fa-hand-point-right animate-icon"></i>
-    <input type="text" id="printerSearchBox" class="search-box" placeholder="Please Search Your Printer" />
-  </div>
+<!-- Your updated search wrapper -->
+<div class="search-input-wrapper" style="display: flex; align-items: center; gap: 10px;">
+  <i class="fas fa-hand-point-right animate-icon"></i>
+  <input type="text" id="printerSearchBox" class="search-box" placeholder="Please Search Your Printer" />
+</div>
 
-  <!-- Search Button -->
-  <button id="searchBtn" class="search-btn" style="margin-top: 10px;">SEARCH</button>
-
-  <!-- Spinner -->
-  <div id="loadingSpinner" class="spinner" style="display: none; margin-top: 12px;"></div>
+<button class="search-btn" style="margin-top: 10px; margin-left: 25px;" onclick="window.location.href='/connect-printer';">SEARCH</button>
 </div>
 
     <p style="margin-top: 10px; font-size: 16px; color: #444;">
@@ -264,23 +258,5 @@
   </div>
 </footer>
 <script src="//code.jivosite.com/widget/PwIvpjoKWf" async></script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const searchBtn = document.getElementById("searchBtn");
-    const spinner = document.getElementById("loadingSpinner");
-
-    searchBtn.addEventListener("click", function () {
-      spinner.style.display = "block";
-      searchBtn.disabled = true;
-
-      setTimeout(function () {
-        window.location.href = "/connect-printer";
-      }, 3000);
-    });
-  });
-</script>
-</body>
-</html>
-
 </body>
 </html>

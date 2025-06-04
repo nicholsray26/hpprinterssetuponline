@@ -460,36 +460,3 @@ footer {
 .animate-icon {
   animation: pulse 1.4s infinite ease-in-out;
 }
-.spinner {
-  width: 24px;
-  height: 24px;
-  border: 3px solid #ccc;
-  border-top: 3px solid #333;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-@media (max-width: 768px) {
-  .hero {
-    flex-direction: column;
-    padding: 40px 20px;
-    text-align: center;
-  }
-
-  .hero-text {
-    max-width: 100%;
-    align-items: center;
-  }
-
-  .search-btn {
-    align-self: center;
-  }
-
-  .search-input-wrapper {
-    justify-content: center;
-    width: 100%;
-  }
-}
