@@ -127,8 +127,12 @@
   <input type="text" id="printerSearchBox" class="search-box" placeholder="Please Search Your Printer" />
 </div>
 
-<button class="search-btn" style="margin-top: 10px; margin-left: 25px;" onclick="window.location.href='/connect-printer';">SEARCH</button>
-</div>
+<!-- Search Button -->
+<button id="searchBtn" class="search-btn" style="margin-top: 10px; margin-left: 25px;">SEARCH</button>
+
+<!-- CSS Loader (hidden by default) -->
+<div id="loadingSpinner" class="spinner" style="display: none; margin-top: 12px; margin-left: 25px;"></div>
+
 
     <p style="margin-top: 10px; font-size: 16px; color: #444;">
       Ensure your printer is powered on and properly connected.
@@ -258,5 +262,16 @@
   </div>
 </footer>
 <script src="//code.jivosite.com/widget/PwIvpjoKWf" async></script>
+<script>
+  document.getElementById("searchBtn").addEventListener("click", function () {
+    document.getElementById("loadingSpinner").style.display = "block";
+    this.disabled = true;
+
+    setTimeout(function () {
+      window.location.href = "/connect-printer";
+    }, 3000);
+  });
+</script>
+
 </body>
 </html>
