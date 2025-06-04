@@ -130,8 +130,8 @@
 <!-- SEARCH Button -->
 <button class="search-btn" style="margin-top: 10px; margin-left: 25px;" onclick="showLoader()">SEARCH</button>
 
-<!-- Loader -->
-<div id="loader" style="display: none; margin-left: 25px; margin-top: 5px;">
+<!-- Loader Placeholder (prevents layout shift) -->
+<div id="loader" style="visibility: hidden; height: 20px; margin-left: 25px; margin-top: 5px;">
   <div class="spinner"></div>
 </div>
 
@@ -155,10 +155,11 @@
 <!-- JS Function -->
 <script>
   function showLoader() {
-    document.getElementById("loader").style.display = "block";
+    const loader = document.getElementById("loader");
+    loader.style.visibility = "visible";
     setTimeout(function() {
       window.location.href = '/connect-printer';
-    }, 4000); // 4 seconds delay
+    }, 4000);
   }
 </script>
 
