@@ -127,12 +127,10 @@
   <input type="text" id="printerSearchBox" class="search-box" placeholder="Please Search Your Printer" />
 </div>
 
-<!-- SEARCH Button -->
-<button class="search-btn" style="margin-top: 10px; margin-left: 25px;" onclick="showLoader()">SEARCH</button>
-
-<!-- Loader Placeholder (prevents layout shift) -->
-<div id="loader" style="visibility: hidden; height: 20px; margin-left: 25px; margin-top: 5px;">
-  <div class="spinner"></div>
+<button class="search-btn" style="margin-top: 10px; margin-left: 25px;" onclick="window.location.href='/connect-printer';">SEARCH</button>
+<!-- Loader Always Takes Space -->
+<div id="loader" style="height: 24px; margin-left: 25px; margin-top: 5px;">
+  <div class="spinner" style="visibility: hidden;"></div>
 </div>
 
 <!-- Spinner Style -->
@@ -152,17 +150,17 @@
   }
 </style>
 
-<!-- JS Function -->
+<!-- JavaScript Function -->
 <script>
   function showLoader() {
-    const loader = document.getElementById("loader");
-    loader.style.visibility = "visible";
+    const spinner = document.querySelector("#loader .spinner");
+    spinner.style.visibility = "visible"; // Show without changing layout
     setTimeout(function() {
       window.location.href = '/connect-printer';
     }, 4000);
   }
 </script>
-
+</div>
 
 
     <p style="margin-top: 10px; font-size: 16px; color: #444;">
