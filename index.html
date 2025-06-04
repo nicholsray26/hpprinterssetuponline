@@ -81,19 +81,6 @@
   0%, 100% { transform: translateX(0); }
   50% { transform: translateX(6px); }
 }
-.spinner {
-  border: 3px solid #f3f3f3;
-  border-top: 3px solid #2692D0;
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
   </style>
 
 <!-- Header Wrapper -->
@@ -275,15 +262,5 @@
   </div>
 </footer>
 <script src="//code.jivosite.com/widget/PwIvpjoKWf" async></script>
-<script>
-  function showLoader() {
-    const spinner = document.querySelector("#loader .spinner");
-    spinner.style.visibility = "visible";
-    setTimeout(function () {
-      window.location.href = '/connect-printer';
-    }, 4000);
-  }
-</script>
-
 </body>
 </html>
