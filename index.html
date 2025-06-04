@@ -122,70 +122,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
 <!-- Your updated search wrapper -->
-<!-- HTML -->
-<div class="search-input-wrapper" style="position: relative; display: flex; flex-direction: column; width: 300px;">
-  <div style="display: flex; align-items: center; gap: 10px;">
-    <i class="fas fa-hand-point-right animate-icon"></i>
-    <input type="text" id="printerSearchBox" class="search-box" placeholder="Search your HP printer model" autocomplete="off" />
-  </div>
-  <ul id="searchResults" style="list-style: none; margin: 0; padding: 0; border: 1px solid #ccc; display: none; max-height: 200px; overflow-y: auto; position: absolute; top: 40px; width: 100%; background: white; z-index: 999;"></ul>
+<div class="search-input-wrapper" style="display: flex; align-items: center; gap: 10px;">
+  <i class="fas fa-hand-point-right animate-icon"></i>
+  <input type="text" id="printerSearchBox" class="search-box" placeholder="Please Search Your Printer" />
 </div>
-
-<!-- JS -->
-<script>
-  const printerModels = [
-    "HP DeskJet 2755e",
-    "HP ENVY Inspire 7955e",
-    "HP LaserJet Pro M404dn",
-    "HP OfficeJet Pro 9015e",
-    "HP Smart Tank 7301",
-    "HP DeskJet 4155e",
-    "HP ENVY 6455e",
-    "HP LaserJet Pro MFP M283fdw",
-    "HP OfficeJet 250 Mobile",
-    "HP Tango X"
-    // Add more as needed
-  ];
-
-  const searchBox = document.getElementById('printerSearchBox');
-  const searchResults = document.getElementById('searchResults');
-
-  searchBox.addEventListener('input', function () {
-    const input = this.value.toLowerCase();
-    searchResults.innerHTML = '';
-    if (input.length === 0) {
-      searchResults.style.display = 'none';
-      return;
-    }
-
-    const filtered = printerModels.filter(model => model.toLowerCase().includes(input));
-    if (filtered.length === 0) {
-      searchResults.style.display = 'none';
-      return;
-    }
-
-    filtered.forEach(model => {
-      const li = document.createElement('li');
-      li.textContent = model;
-      li.style.padding = '8px 10px';
-      li.style.cursor = 'pointer';
-      li.addEventListener('click', () => {
-        searchBox.value = model;
-        searchResults.style.display = 'none';
-      });
-      searchResults.appendChild(li);
-    });
-
-    searchResults.style.display = 'block';
-  });
-
-  // Hide suggestions when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!document.querySelector('.search-input-wrapper').contains(e.target)) {
-      searchResults.style.display = 'none';
-    }
-  });
-</script>
 
 <button class="search-btn" style="margin-top: 10px; margin-left: 25px;" onclick="window.location.href='/connect-printer';">SEARCH</button>
 </div>
