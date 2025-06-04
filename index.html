@@ -127,8 +127,41 @@
   <input type="text" id="printerSearchBox" class="search-box" placeholder="Please Search Your Printer" />
 </div>
 
-<button class="search-btn" style="margin-top: 10px; margin-left: 25px;" onclick="window.location.href='/connect-printer';">SEARCH</button>
+<!-- SEARCH Button -->
+<button class="search-btn" style="margin-top: 10px; margin-left: 25px;" onclick="showLoader()">SEARCH</button>
+
+<!-- Loader -->
+<div id="loader" style="display: none; margin-left: 25px; margin-top: 5px;">
+  <div class="spinner"></div>
 </div>
+
+<!-- Spinner Style -->
+<style>
+  .spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #2692D0;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+</style>
+
+<!-- JS Function -->
+<script>
+  function showLoader() {
+    document.getElementById("loader").style.display = "block";
+    setTimeout(function() {
+      window.location.href = '/connect-printer';
+    }, 4000); // 4 seconds delay
+  }
+</script>
+
 
 
     <p style="margin-top: 10px; font-size: 16px; color: #444;">
