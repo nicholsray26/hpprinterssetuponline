@@ -125,19 +125,26 @@
 <!-- HTML -->
 <div class="printer-search-container">
   <form id="printerForm">
-    <input type="text" id="printerSearchBox" placeholder="Search your HP printer model" autocomplete="off" />
+    <input type="text" id="printerSearchBox" placeholder='Enter your product name here. Example: “OfficeJet 9010”' autocomplete="off" />
     <ul id="searchResults"></ul>
+    <button type="submit" id="searchBtn">SEARCH</button>
   </form>
+  <p class="printer-note">Ensure your printer is powered on and properly connected.</p>
 </div>
 
-<!-- CSS -->
 <style>
   .printer-search-container {
     width: 100%;
     max-width: 500px;
     margin: 40px auto;
     font-family: Arial, sans-serif;
+  }
+
+  #printerForm {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 
   #printerSearchBox {
@@ -152,13 +159,13 @@
 
   #searchResults {
     position: absolute;
-    top: 100%;
+    top: 45px;
     left: 0;
     right: 0;
     background: #fff;
     border: 1px solid #ccc;
     border-top: none;
-    max-height: 240px;
+    max-height: 200px;
     overflow-y: auto;
     scroll-behavior: smooth;
     border-radius: 0 0 6px 6px;
@@ -178,7 +185,26 @@
   #searchResults li:hover {
     background-color: #f4f4f4;
   }
+
+  #searchBtn {
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #2196F3;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: fit-content;
+  }
+
+  .printer-note {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+  }
 </style>
+
 
 <!-- JS -->
 <script>
