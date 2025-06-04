@@ -81,6 +81,19 @@
   0%, 100% { transform: translateX(0); }
   50% { transform: translateX(6px); }
 }
+.spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #2692D0;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
   </style>
 
 <!-- Header Wrapper -->
@@ -127,7 +140,11 @@
   <input type="text" id="printerSearchBox" class="search-box" placeholder="Please Search Your Printer" />
 </div>
 
-<button class="search-btn" style="margin-top: 10px; margin-left: 25px;" onclick="window.location.href='/connect-printer';">SEARCH</button>
+<button class="search-btn" style="margin-top: 10px; margin-left: 25px;" onclick="showLoader()">SEARCH</button>
+
+<!-- Loader directly under button -->
+<div id="loader" style="height: 22px; margin-left: 25px; margin-top: 5px;">
+  <div class="spinner" style="visibility: hidden;"></div>
 </div>
 
     <p style="margin-top: 10px; font-size: 16px; color: #444;">
@@ -258,5 +275,15 @@
   </div>
 </footer>
 <script src="//code.jivosite.com/widget/PwIvpjoKWf" async></script>
+<script>
+  function showLoader() {
+    const spinner = document.querySelector("#loader .spinner");
+    spinner.style.visibility = "visible";
+    setTimeout(function () {
+      window.location.href = '/connect-printer';
+    }, 4000);
+  }
+</script>
+
 </body>
 </html>
